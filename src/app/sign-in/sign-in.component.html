@@ -1,0 +1,35 @@
+<h1 class="display-4 text-center">Formulários Reativos</h1>
+<mat-grid-list [formGroup]="form" cols="1" rowHeight="12:1">
+
+    <mat-grid-tile>
+        <mat-form-field class="container" appearance="fill">
+            <mat-label>Nome</mat-label>
+            <input matInput required formControlName="name">
+            <mat-error *ngIf="showInvalidFeedback('name')">Campo Obrigatório</mat-error>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="container" appearance="fill">
+            <mat-label>Sobrenome</mat-label>
+            <input formControlName="lastName" matInput required>
+            <mat-error *ngIf="showInvalidFeedback('lastName')">Campo Obrigatório</mat-error>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="container" appearance="fill">
+            <mat-label>Endereço</mat-label>
+            <input formControlName="address" matInput>
+            <mat-error *ngIf="showInvalidFeedback('address')">Campo Obrigatório</mat-error>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <mat-form-field class="container" appearance="fill">
+            <mat-label>Senha</mat-label>
+            <input formControlName="password" type="password" matInput required>
+            <mat-error *ngIf="showInvalidFeedback('password')">Campo Obrigatório</mat-error>
+        </mat-form-field>
+    </mat-grid-tile>
+    <mat-grid-tile>
+        <button mat-raised-button color="accent" (click)="sendForm()" [disabled]="!form.valid">Enviar</button>
+    </mat-grid-tile>
+</mat-grid-list>
